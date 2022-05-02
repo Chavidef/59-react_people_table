@@ -9,7 +9,7 @@ class PersonForm extends React.Component {
                 <div className='jumbotron'>
                     <div className='row'>
                         <div className='col-md-2'>
-                            <input type='text' value={firstName} onChange={onFirstNameChange} className='form-control' placeholder='First Name' />
+                            <input type='text' value={firstName} onChange={onFirstNameChange} className='form-control' placeholder='First Name'/>
                         </div>
                         <div className='col-md-2' >
                             <input type='text' value={lastName} onChange={onLastNameChange} className='form-control' placeholder='Last Name' />

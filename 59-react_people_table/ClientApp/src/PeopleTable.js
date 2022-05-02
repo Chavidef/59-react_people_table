@@ -23,16 +23,18 @@ class PeopleTable extends React.Component {
         this.setState({ age: e.target.value })
     }
 
-    onAddClick() {
-        const { firstName } = this.state;
+    onAddClick = () => {
 
-        //const { firstName, lastName, age } = this.state;
+        const { firstName, lastName, age, people } = this.state;
         
-        //const person = { firstName, lastName, age } = this.state;
-        //const copyPeople = [person, ...people];
-        //const copyPeople = [{ firstName: this.state.firstName, lastName: this.state.lastName, age: this.state.age }, ...{ people: this.state.people }];
-        //this.setState({ people: copyPeople, first: '', last: '', age: '' });
-        //console.log(this.state.people);
+        const person = { firstName, lastName, age };
+        const copyPeople = [person, ...people];
+        this.setState({ people: copyPeople, firstName: '', lastName: '', age: '' });
+        
+    }
+
+    onClearClick = () => {
+        this.setState({ people: [] });
     }
 
     render() {
@@ -50,7 +52,7 @@ class PeopleTable extends React.Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <PersonRow people={this.state.people} />
+                        {this.state.people.map((p, k) => <PersonRow person={p} key={k} />)}
                     </tbody>
                 </table>
             </div>
