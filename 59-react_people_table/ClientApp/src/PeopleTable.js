@@ -36,25 +36,38 @@ class PeopleTable extends React.Component {
     onClearClick = () => {
         this.setState({ people: [] });
     }
+    generateBody = () => {
+        if (this.state.people.length == 0) {
+            return <h1>No people yet! You be the Nachshon!</h1>
+        }
+        else {
+            return (
+                <>
+                    <table className='table table-bordered table-striped table-hover'>
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.people.map((p, k) => <PersonRow person={p} key={k} />)}
+                        </tbody>
+                    </table>
+                </>
+                )
+        }
+    }
 
     render() {
+       
         return (
             <div className='container mt-5'>
                 <PersonForm firstName={this.state.firstName} lastName={this.state.lastName} age={this.state.age}
                     onFirstNameChange={this.onFirstNameChange} onLastNameChange={this.onLastNameChange} onAgeChange={this.onAgeChange}
-                    onAddClick={this.onAddClick} onClearClick={this.onClearClick}/>
-                <table className='table table-bordered table-striped table-hover'>
-                    <thead>
-                        <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Age</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.people.map((p, k) => <PersonRow person={p} key={k} />)}
-                    </tbody>
-                </table>
+                    onAddClick={this.onAddClick} onClearClick={this.onClearClick} />
+                {this.generateBody()}
             </div>
         )
     }
