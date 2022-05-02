@@ -7,7 +7,7 @@ class PeopleTable extends React.Component {
     state = {
         firstName: '',
         lastName: '',
-        age: 0,
+        age: '',
         people: []
     }
 

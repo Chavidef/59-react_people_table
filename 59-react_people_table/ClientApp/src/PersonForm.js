@@ -23,7 +23,7 @@ class PersonForm extends React.Component {
                             <button onClick={onAddClick} className='btn btn-primary btn-block btn-success'>Add</button>
                         </div>
                         <div className='col-md-2'>
-                            <button onClick={onClearClick} className='btn btn-primary btn-block btn-primary'>Clear</button>
+                            <button onClick={onClearClick} className='btn btn-primary btn-block btn-warning'>Clear</button>
                         </div>
                     </div>
                 </div>
